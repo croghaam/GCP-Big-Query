@@ -1,0 +1,109 @@
+--- telus-wise-contact
+
+SELECT
+event_typ_nm,
+cust_cntct_nm,
+cust_email_txt,
+cust_ph_num,
+cust_uuid,
+cust_prov_cd,
+cust_lang_cd,
+cust_mailg_consent_ind,
+cust_ln_of_bus_txt,
+regexp_replace(json_extract(enrch_str,'$.subject'),',',' ') subject,
+regexp_replace(json_extract(enrch_str,'$.comments'),',',' ') comments,
+regexp_replace(json_extract(enrch_str,'$.requestUrl'),',',' ') request_url,
+regexp_replace(json_extract(enrch_str,'$.submitTimestamp'),',',' ') submit_timestamp
+FROM
+`cio-datahub-enterprise-pr-183a.ent_cust_intractn.bq_formbuilder_web_cmpgn_coll`
+WHERE
+event_typ_nm = 'telus-wise-contact'
+limit 50
+    
+     
+--- telus-wise-workshops
+
+SELECT
+event_typ_nm,
+cust_cntct_nm,
+cust_email_txt,
+cust_ph_num,
+cust_prov_cd,
+cust_lang_cd,
+cust_mailg_consent_ind,
+cust_ln_of_bus_txt,
+regexp_replace(json_extract(enrch_str,'$.workshop'),',',' ') workshop,
+regexp_replace(json_extract(enrch_str,'$.format'),',',' ') format, 
+regexp_replace(json_extract(enrch_str,'$.month'),',',' ') month,
+regexp_replace(json_extract(enrch_str,'$.attendees'),',',' ') attendees,
+regexp_replace(json_extract(enrch_str,'$.school'),',',' ') school,
+regexp_replace(json_extract(enrch_str,'$.address1'),',',' ') address1,
+regexp_replace(json_extract(enrch_str,'$.address2'),',',' ') address2,
+regexp_replace(json_extract(enrch_str,'$.city'),',',' ') city,
+regexp_replace(json_extract(enrch_str,'$.province'),',',' ') province,
+regexp_replace(json_extract(enrch_str,'$.postalCode'),',',' ') postal_code,
+regexp_replace(json_extract(enrch_str,'$.educator'),',',' ') educator,
+regexp_replace(json_extract(enrch_str,'$.newsletterOptIn'),',',' ') newsletter_opt_in,
+regexp_replace(json_extract(enrch_str,'$.languagePreference'),',',' ') language_preference,
+regexp_replace(json_extract(enrch_str,'$.comments'),',',' ') comments, 
+regexp_replace(json_extract(enrch_str,'$.referrer'),',',' ') referrer,
+regexp_replace(json_extract(enrch_str,'$.requestUrl'),',',' ') request_url,
+regexp_replace(json_extract(enrch_str,'$.submitTimestamp'),',',' ') submit_timestamp
+FROM
+`cio-datahub-enterprise-pr-183a.ent_cust_intractn.bq_formbuilder_web_cmpgn_coll`
+WHERE
+event_typ_nm = 'telus-wise-workshops'
+limit 50
+
+--- telus_wise_request_posters form hql
+
+SELECT
+event_typ_nm,
+cust_cntct_nm,
+cust_email_txt,
+cust_ph_num,
+cust_mkt_cloud_id,
+cust_uuid,
+cust_prov_cd,
+cust_lang_cd,
+cust_mailg_consent_ind,
+cust_ln_of_bus_txt,
+regexp_replace(json_extract(enrch_str,'$.orderType'),',',' ') order_type,
+regexp_replace(json_extract(enrch_str,'$.institution'),',',' ') institution,
+regexp_replace(json_extract(enrch_str,'$.quantity'),',',' ') quantity,
+regexp_replace(json_extract(enrch_str,'$.address1'),',',' ') address1,
+regexp_replace(json_extract(enrch_str,'$.address2'),',',' ') address2,
+regexp_replace(json_extract(enrch_str,'$.city'),',',' ') city,
+regexp_replace(json_extract(enrch_str,'$.province'),',',' ') province,
+regexp_replace(json_extract(enrch_str,'$.postalCode'),',',' ') postal_code,
+regexp_replace(json_extract(enrch_str,'$.referrer'),',',' ') referrer,
+regexp_replace(json_extract(enrch_str,'$.optin'),',',' ') opt_in,
+regexp_replace(json_extract(enrch_str,'$.requestUrl'),',',' ') request_url,
+regexp_replace(json_extract(enrch_str,'$.submitTimestamp'),',',' ') submit_timestamp
+FROM
+`cio-datahub-enterprise-pr-183a.ent_cust_intractn.bq_formbuilder_web_cmpgn_coll`
+WHERE
+event_typ_nm = 'telus-wise-request-posters'
+limit 50
+
+--- telus_wise_newsletter_signup hql
+
+SELECT
+event_typ_nm,
+cust_cntct_nm,
+cust_email_txt,
+cust_ph_num,
+cust_uuid,
+cust_prov_cd,
+cust_lang_cd,
+cust_mailg_consent_ind,
+cust_ln_of_bus_txt,
+regexp_replace(json_extract(enrch_str,'$.educator'),',',' ') educator,
+regexp_replace(json_extract(enrch_str,'$.languagePreference'),',',' ') language_preference,
+regexp_replace(json_extract(enrch_str,'$.requestUrl'),',',' ') request_url,
+regexp_replace(json_extract(enrch_str,'$.submitTimestamp'),',',' ') submit_timestamp
+FROM
+`cio-datahub-enterprise-pr-183a.ent_cust_intractn.bq_formbuilder_web_cmpgn_coll`
+WHERE
+event_typ_nm = 'telus-wise-newsletter-signup'
+limit 50

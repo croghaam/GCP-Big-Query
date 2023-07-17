@@ -1,0 +1,15 @@
+SELECT
+event_typ_nm,
+cust_cntct_nm,
+cust_email_txt,
+cust_prov_cd,
+cust_lang_cd,
+regexp_replace(json_extract(enrch_str,'$.educator'),',',' ') educator,
+regexp_replace(json_extract(enrch_str,'$.languagePreference'),',',' ') language_preference,
+regexp_replace(json_extract(enrch_str,'$.requestUrl'),',',' ') request_url,
+regexp_replace(json_extract(enrch_str,'$.submitTimestamp'),',',' ') submit_timestamp
+FROM
+`cio-datahub-enterprise-pr-183a.ent_cust_intractn.bq_formbuilder_web_cmpgn_coll`
+WHERE
+event_typ_nm = 'telus-wise-newsletter-signup'
+LIMIT 2000  
